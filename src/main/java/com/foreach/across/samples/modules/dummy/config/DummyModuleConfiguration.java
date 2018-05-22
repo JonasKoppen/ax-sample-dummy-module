@@ -2,8 +2,9 @@ package com.foreach.across.samples.modules.dummy.config;
 
 import com.foreach.across.samples.modules.dummy.DummyModule;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.annotation.PostConstruct;
 
 /**
  * @author Steven Gentens
@@ -13,10 +14,9 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 public class DummyModuleConfiguration {
 
-    @Bean
-    public Void isBootstrapped() {
+    @PostConstruct
+    public void isBootstrapped() {
         log.info( DummyModule.NAME + " has been added to the application." );
-        return null;
     }
 
 }
